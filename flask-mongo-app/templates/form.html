@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head><title>Submit Form</title></head>
+<head>
+    <title>Submit Form</title>
+</head>
 <body>
     <h2>Submit Your Info</h2>
-    <form method="POST">
+    <!-- Form 1: User Info -->
+    <form method="POST" action="/">
         Name: <input type="text" name="name" required><br><br>
         Email: <input type="email" name="email" required><br><br>
         <input type="submit" value="Submit">
     </form>
+
+    <hr>
+
+    <!-- Form 2: To-Do Item -->
+    <h2>Submit To-Do Item</h2>
+    <form action="/submittodoitem" method="POST">
+        Item Name: <input type="text" name="itemName" required><br><br>
+        Item Description: <textarea name="itemDescription" required></textarea><br><br>
+
+        <!-- Fields for later steps -->
+        Item ID: <input type="text" name="itemID"><br><br>
+        Item UUID: <input type="text" name="itemUUID"><br><br>
+        Item Hash: <input type="text" name="itemHash"><br><br>
+
+        <button type="submit">Submit To-Do</button>
+    </form>
+
+    <!-- Error Handling -->
     {% if error %}
         <p style="color:red;">Error: {{ error }}</p>
     {% endif %}
